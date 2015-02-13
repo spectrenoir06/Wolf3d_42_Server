@@ -4,7 +4,7 @@ struct  = require "struct"
 require "json"
 
 local ServerIp = "*"
-local ServerTcpPort = 1234
+local ServerTcpPort = 12345
 
 nb  = 0
 cl  = 0     -- nb de
