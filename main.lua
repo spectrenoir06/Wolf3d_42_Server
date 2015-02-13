@@ -35,8 +35,8 @@ function handler(skt)
         --print(data,status, partial)
         if data then
             print(data)
-            x,y = struct.unpack("ii", data)
-            print(x,y)
+            --x,y = struct.unpack("ii", data)
+            --print(x,y)
             --me.skt:send("hello".."\n")
         end
         if status=="closed" then
