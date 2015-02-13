@@ -37,7 +37,7 @@ function handler(skt)
             print(data)
             x,y = struct.unpack("ii", data)
             print(x,y)
-            me.skt:send("hello".."\n")
+            --me.skt:send("hello".."\n")
         end
         if status=="closed" then
             print(status..":\t\t\t"..tcpIp..":"..tcpPort)
