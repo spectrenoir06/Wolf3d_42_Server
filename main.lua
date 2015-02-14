@@ -68,8 +68,17 @@ end
 
 copas.addserver(tcpSocket, handler)
 
+i = 0
 
 while 42 do
     copas.step(0)
     socket.sleep(0.2)
+    i = i + 1
+
+    if i > 100 then
+        file = io.open("/var/www/test.json", "w")
+        file:write(json.encode(Clients))
+        file:close()
+        i = 0
+    end
 end
