@@ -37,6 +37,10 @@ function handler(skt)
     local me = Clients[tcpIp..":"..tcpPort]
 
     cl = cl +1
+    for k,v in ipairs(Clients) do
+        msg = struct.pack("dd", v.x, v.y);
+        me.skt:send(msg)
+    end
     while true do
         nb=nb+1
         local data, status, partial = skt:receive(17)
@@ -47,14 +51,15 @@ function handler(skt)
             print(x,y)
             me.x = x
             me.y = y
-            me.skt:send(struct.pack("dd", 42.42,43.43))
+
+            for k,v in ipairs(Clients) do
+                msg = struct.pack("dd", v.x, v.y);
+                me.skt:send(msg)
+            end
         end
         if status=="closed" then
             print(status..":\t\t\t"..tcpIp..":"..tcpPort)
             cl = cl - 1
-            --for k,v in pairs(Admins) do
-            --    v.skt:send("jso:"..json.encode(Clients[tcpIp..':'..tcpPort]).."\n")
-            --end
             Clients[tcpIp..':'..tcpPort] = nil
             break
         end
