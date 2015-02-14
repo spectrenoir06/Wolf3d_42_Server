@@ -76,7 +76,7 @@ while 42 do
     i = i + 1
 
     if i > 100 then
-        file = io.open("/var/www/test.json", "w")
+        file = io.open("/var/www/html/test.json", "w")
         file:write(json.encode(Clients))
         file:close()
         i = 0
