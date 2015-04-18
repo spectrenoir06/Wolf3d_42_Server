@@ -70,15 +70,21 @@ copas.addserver(tcpSocket, handler)
 
 i = 0
 
+udp = socket.udp()
+udp:settimeout(0)
+
+udp:setsockname('*', 12345)
+
 while 42 do
     copas.step(0)
     socket.sleep(0.2)
     i = i + 1
-
-    if i > 100 then
-        file = io.open("/var/www/html/test.json", "w")
-        file:write(json.encode(Clients))
-        file:close()
-        i = 0
-    end
+    --data, msg_or_ip, port_or_nil = udp:receivefrom(0)
+  --  print(data, msg_or_ip, port_or_nil)
+ --   if i > 100 then
+   --     file = io.open("/var/www/html/test.json", "w")
+     --   file:write(json.encode(Clients))
+       -- file:close()
+       -- i = 0
+   -- end
 end
