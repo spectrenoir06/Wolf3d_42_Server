@@ -79,8 +79,12 @@ while 42 do
     copas.step(0)
     socket.sleep(0.2)
     i = i + 1
-    --data, msg_or_ip, port_or_nil = udp:receivefrom(0)
-  --  print(data, msg_or_ip, port_or_nil)
+    data, msg_or_ip, port_or_nil = udp:receivefrom(0)
+    print(data, msg_or_ip, port_or_nil)
+    if (data) then
+        
+    end
+
  --   if i > 100 then
    --     file = io.open("/var/www/html/test.json", "w")
      --   file:write(json.encode(Clients))
